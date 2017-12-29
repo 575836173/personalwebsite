@@ -50,15 +50,4 @@ public class Account {
     public void setNickname(String nickname) {
         this.nickname = nickname == null ? null : nickname.trim();
     }
-
-    @Override
-    public String toString() {
-        return "Account{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", phone='" + phone + '\'' +
-                ", nickname='" + nickname + '\'' +
-                '}';
-    }
 }

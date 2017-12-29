@@ -70,17 +70,4 @@ public class Sms {
     public void setState(Integer state) {
         this.state = state;
     }
-
-    @Override
-    public String toString() {
-        return "Sms{" +
-                "id=" + id +
-                ", phone='" + phone + '\'' +
-                ", smType=" + smType +
-                ", sms='" + sms + '\'' +
-                ", releaseTime='" + releaseTime + '\'' +
-                ", expireTime='" + expireTime + '\'' +
-                ", state=" + state +
-                '}';
-    }
 }
