@@ -1,5 +1,7 @@
 package com.lengzq.service.impl;
 
+import com.lengzq.mapper.AccountMapper;
+import com.lengzq.model.Account;
 import com.lengzq.service.LoginService;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
@@ -16,6 +18,8 @@ import java.util.Map;
 public class LoginServiceImpl implements LoginService {
     //@Autowired
     Logger log = Logger.getLogger(LoginServiceImpl.class);
+    @Autowired
+    private AccountMapper accountMapper;
     public Map<String, Object> login(String username, String password) {
         Map<String,Object> map = new HashMap<String,Object>();
         if(StringUtils.isEmpty(username)||StringUtils.isEmpty(password)){
@@ -24,12 +28,15 @@ public class LoginServiceImpl implements LoginService {
             return map;
         }
         try {
-            if("zhangsan".equals(username)&&"123456".equals(password)){
+            Account account = accountMapper.selectAccountByNameAndPass(username,password);
+            if(account!=null){
                 map.put("opResult","0");
+                map.put("account",account);
             }else{
                 map.put("opResult","1");
             }
         }catch (Exception e){
+            e.printStackTrace();
             log.error("There are errors in the code");
             map.put("opResult","2");
             return map;

@@ -7,216 +7,160 @@
   <version>1.0-SNAPSHOT</version>
   <name>lengzq Maven Webapp</name>
   <url>http://maven.apache.org</url>
+  <properties>
+    <springVersion>4.3.1.RELEASE</springVersion>
+    <hibernateVersion>4.3.5.Final</hibernateVersion>
+    <jstlVersion>1.2</jstlVersion>
+    <taglibVersion>1.1.2</taglibVersion>
+    <servletVersion>3.0-alpha-1</servletVersion>
+    <jsonVersion>1.9.13</jsonVersion>
+    <jacksonVersion>2.5.0</jacksonVersion>
+    <mysqlVersion>5.1.38</mysqlVersion>
+    <c3p0Version>0.9.1.2</c3p0Version>
+    <log4jVersion>1.2.17</log4jVersion>
+    <fileuploadVersion>1.3.1</fileuploadVersion>
+    <lombokVersion>1.16.10</lombokVersion>
+  </properties>
+
   <dependencies>
+    <!-- 单元测试 -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+
+    <!-- spring-->
     <dependency>
-      <groupId>com.aliyun</groupId>
-      <artifactId>aliyun-java-sdk-core</artifactId>
-      <version>2.4.2</version>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-beans</artifactId>
+      <version>${springVersion}</version>
     </dependency>
-    <dependency>
-      <groupId>com.aliyun</groupId>
-      <artifactId>aliyun-java-sdk-sms</artifactId>
-      <version>3.0.0-rc1</version>
-    </dependency>
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>javax.servlet-api</artifactId>
-      <version>3.1.0</version>
-    </dependency>
+
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-core</artifactId>
-      <version>4.1.2.RELEASE</version>
-    </dependency>
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-core</artifactId>
-      <version>2.3.0</version>
-    </dependency>
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
-      <version>2.3.0</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-websocket</artifactId>
-      <version>4.0.1.RELEASE</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-messaging</artifactId>
-      <version>4.0.1.RELEASE</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-aop</artifactId>
-      <version>4.1.2.RELEASE</version>
+      <version>${springVersion}</version>
     </dependency>
 
     <dependency>
       <groupId>org.springframework</groupId>
-      <artifactId>spring-aspects</artifactId>
-      <version>4.1.2.RELEASE</version>
-    </dependency>
-    <dependency>
-      <groupId>org.aspectj</groupId>
-      <artifactId>aspectjweaver</artifactId>
-      <version>1.6.12</version>
+      <artifactId>spring-context</artifactId>
+      <version>${springVersion}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
-      <artifactId>spring-context-support</artifactId>
-      <version>4.1.2.RELEASE</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-jdbc</artifactId>
-      <version>4.1.2.RELEASE</version>
+      <artifactId>spring-orm</artifactId>
+      <version>${springVersion}</version>
     </dependency>
 
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-webmvc</artifactId>
-      <version>4.1.2.RELEASE</version>
-    </dependency>
+    <!-- spring web + spring MVC-->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-web</artifactId>
-      <version>4.1.2.RELEASE</version>
+      <version>${springVersion}</version>
     </dependency>
-
-
-
-
-
     <dependency>
       <groupId>org.springframework</groupId>
-      <artifactId>spring-test</artifactId>
-      <version>3.2.0.RELEASE</version>
-      <scope>test</scope>
+      <artifactId>spring-webmvc</artifactId>
+      <version>${springVersion}</version>
     </dependency>
 
+    <!-- hibernate配置-->
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>${hibernateVersion}</version>
     </dependency>
 
+    <!-- hibernate 缓存, 视情况添加-->
     <dependency>
-      <groupId>org.mybatis</groupId>
-      <artifactId>mybatis</artifactId>
-      <version>3.2.3</version>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-ehcache</artifactId>
+      <version>${hibernateVersion}</version>
     </dependency>
 
+    <!-- jsp页面使用的jstl支持-->
     <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-      <version>5.1.20</version>
+      <groupId>jstl</groupId>
+      <artifactId>jstl</artifactId>
+      <version>${jstlVersion}</version>
     </dependency>
-
     <dependency>
-      <groupId>commons-dbcp</groupId>
-      <artifactId>commons-dbcp</artifactId>
-      <version>1.3</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.mybatis</groupId>
-      <artifactId>mybatis-spring</artifactId>
-      <version>1.2.2</version>
-    </dependency>
-
-    <dependency>
-      <groupId>commons-fileupload</groupId>
-      <artifactId>commons-fileupload</artifactId>
-      <version>1.3</version>
-    </dependency>
-
-
-    <dependency>
-      <groupId>org.apache.velocity</groupId>
-      <artifactId>velocity</artifactId>
-      <version>1.6.4</version>
+      <groupId>taglibs</groupId>
+      <artifactId>standard</artifactId>
+      <version>${taglibVersion}</version>
     </dependency>
     <dependency>
       <groupId>javax.servlet</groupId>
-      <artifactId>jstl</artifactId>
-      <version>1.2</version>
+      <artifactId>servlet-api</artifactId>
+      <version>${servletVersion}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- DataBase数据库连接 mysql包-->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>${mysqlVersion}</version>
+    </dependency>
+
+    <!-- 数据库连接池-->
+    <dependency>
+      <groupId>c3p0</groupId>
+      <artifactId>c3p0</artifactId>
+      <version>${c3p0Version}</version>
+    </dependency>
+
+    <!-- json数据 使springMVC可以返回json值 ,视情况添加-->
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-mapper-asl</artifactId>
+      <version>${jsonVersion}</version>
+    </dependency>
+
+    <!-- Jackson可以轻松的将Java对象转换成json对象和xml文档,同样也可以将json、xml转换成Java对象-->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>${jacksonVersion}</version>
     </dependency>
     <dependency>
-      <groupId>cglib</groupId>
-      <artifactId>cglib</artifactId>
-      <version>2.2.2</version>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-annotations</artifactId>
+      <version>${jacksonVersion}</version>
     </dependency>
 
     <dependency>
-      <groupId>org.codehaus.jackson</groupId>
-      <artifactId>jackson-core-asl</artifactId>
-      <version>1.9.8</version>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jacksonVersion}</version>
     </dependency>
-    <dependency>
-      <groupId>org.codehaus.jackson</groupId>
-      <artifactId>jackson-mapper-lgpl</artifactId>
-      <version>1.9.8</version>
-    </dependency>
-    <dependency>
-      <groupId>com.fasterxml.jackson.module</groupId>
-      <artifactId>jackson-module-jaxb-annotations</artifactId>
-      <version>2.4.4</version>
-    </dependency>
+
+    <!-- log4j配置, 视情况添加-->
     <dependency>
       <groupId>log4j</groupId>
       <artifactId>log4j</artifactId>
-      <version>1.2.17</version>
-    </dependency>
-    <!-- <dependency> -->
-    <!-- <groupId>jexcelapi</groupId> -->
-    <!-- <artifactId>jxl</artifactId> -->
-    <!-- <version>2.6</version> -->
-    <!-- </dependency> -->
-    <dependency>
-      <groupId>net.sf.json-lib</groupId>
-      <artifactId>json-lib</artifactId>
-      <classifier>jdk15</classifier>
-      <version>2.1</version>
+      <version>${log4jVersion}</version>
     </dependency>
 
+    <!--文件 上传-->
     <dependency>
-      <groupId>org.mongodb</groupId>
-      <artifactId>bson</artifactId>
-      <version>3.4.1</version>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>${fileuploadVersion}</version>
     </dependency>
 
+    <!-- lombok插件导包-->
     <dependency>
-      <groupId>org.mongodb</groupId>
-      <artifactId>mongo-java-driver</artifactId>
-      <version>3.4.1</version>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>${lombokVersion}</version>
+      <scope>provided</scope>
     </dependency>
 
-    <dependency>
-      <groupId>org.mongodb</groupId>
-      <artifactId>mongodb-driver-core</artifactId>
-      <version>3.4.1</version>
-    </dependency>
 
-    <dependency>
-      <groupId>org.quartz-scheduler</groupId>
-      <artifactId>quartz</artifactId>
-      <version>2.2.1</version>
-    </dependency>
-    <dependency>
-      <groupId>org.quartz-scheduler</groupId>
-      <artifactId>quartz-jobs</artifactId>
-      <version>2.2.1</version>
-    </dependency>
   </dependencies>
   <!--<plugin>
     <groupId>org.mybatis.generator</groupId>
